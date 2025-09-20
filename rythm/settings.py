@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '5f$swo50^5wy-luojxst_bw0wmk8qx1iamztjy6y0@$66gg!nc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['tig-rythm.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['tigrinya-rhythm.vercel.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
