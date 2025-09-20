@@ -56,6 +56,7 @@
   const searchValue = urlParams.get('search');
   if (searchValue!=null) {
     document.getElementById('searchResult').textContent += ` for፡ ${searchValue}`;
+    document.getElementById("search-input").value = searchValue;
   }
 
   function navigate(pageNum) {
