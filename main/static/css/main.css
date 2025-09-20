@@ -1,0 +1,115 @@
+:root {
+  --fam:"helvetica neue", "helvetica", "arial", sans-serif;
+  --fontcolor: #313131;
+  --bg: #F9F6F7;
+  --sel: #1264FF;
+}
+
+body {
+  margin: 0;
+  padding: 25px;
+  background-color: var(--bg);
+}
+
+label.lb-1, p.lb-1 {
+  font-family: var(--fam);
+  font-size: 20px;
+  color: var(--fontcolor);
+}
+
+#search-input {
+  border: 0;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+  font-family: var(--fam);
+  background-color: #fff;
+  font-size: 17px;
+  color: var(--fontcolor);
+  outline: none !important;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.pg-lnk {
+  display: inline-block;
+}
+
+.lb-2, button[type="submit"], .res-words, .pg-lnk {
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  cursor: pointer;
+  border: 0;
+  -webkit-box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.1);
+  font-size: 19px;
+  background-color: #fff;
+  font-family: var(--fam);
+  font-size: 17px;
+  color: var(--fontcolor);
+  padding: 10px 15px;
+  margin-left: 6px;
+  border-radius: 10px;
+}
+
+.res-words {
+  margin-bottom: 10px;
+  margin-left: 12px;
+}
+
+button[type="submit"] {
+  background-color: var(--sel);
+  color: white;
+}
+
+input[type="radio"]:checked + .lb-2, .pg-lnk-now {
+  background-color: var(--sel);
+  color: #fff;
+}
+
+input, .lb-2, .lb-1 {
+  margin-bottom: 20px;
+}
+
+hr.h1, hr.h2 {
+  width: 900px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-width: 2px;
+  border-color: #EAEAEA;
+  border-style: solid;
+}
+
+hr.h2 {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.res-words {
+  cursor: default;
+}
+
+@media only screen and (max-width: 1000px) {
+  body {
+      padding: 20px 15px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+}
+/*# sourceMappingURL=main.css.map */

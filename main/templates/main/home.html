@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<form method="GET" action="{% url 'home' %}" >
+  <label for="search-input" class="lb-1">Search</label>
+  <input id="search-input" name="search" type="search" placeholder="Type here... ">
+  <br>
+  <input type="radio" checked value="last" name="type" id="last-one">
+  <label for="last-one" class="lb-2">Last One</label>
+  <input type="radio" value="second" name="type" id="last-two">
+  <label for="last-two" class="lb-2">Last Two</label>
+  <input type="radio" value="voice" name="type" id="voice">
+  <label for="voice" class="lb-2">Voice</label>
+  <button type="submit">Search</button>
+</form>
+
+<hr class="h1">
+
+<p id="searchResult" class="lb-1">Results</p><p id="searchResult"></p>
+<div class="content">
+  {% if word.count != 0 %}
+    {% for word in words %}
+      <p class="res-words">{{word}}</p>
+    {% endfor %}
+  {% else %}
+    <p class="lb-1">No results</p>
+  {% endif %}
+</div>
+
+<hr class="h2">
+
+<div class="pages">
+  {% if words.has_previous %}
+    <div class="pg-lnk" onclick="navigate('1')">First</div>
+    <div class="pg-lnk" onclick="navigate('{{ words.previous_page_number }}')">Previous</div>
+  {% endif %}
+
+  {% for num in words.paginator.page_range %}
+    {% if words.number == num %}
+      <div class="pg-lnk pg-lnk-now" onclick="navigate('{{ num }}')">{{ num }}</div>
+    {% elif num > words.number|add:'-3' and num < words.number|add:'3' %}
+      <div class="pg-lnk" onclick="navigate('{{ num }}')">{{ num }}</div>
+    {% endif %}
+  {% endfor %}
+
+  {% if words.has_next %}
+    <div class="pg-lnk" onclick="navigate('{{ words.next_page_number }}')">Next</div>
+    <div class="pg-lnk" onclick="navigate('{{ words.paginator.num_pages }}')">Last</div>
+  {% endif %}
+</div>
+
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchValue = urlParams.get('search');
+  if (searchValue!=null) {
+    document.getElementById('searchResult').textContent += ` for፡ ${searchValue}`;
+  }
+
+  function navigate(pageNum) {
+    const parsedUrl = new URL(window.location.href);
+    // console.log(parsedUrl.searchParams.get("id"));
+    searchKey = parsedUrl.searchParams.get("search");
+    type = parsedUrl.searchParams.get("type");
+    url = window.location.href.split('?')[0] + "?search=" + searchKey + "&type=" + type + "&page=" + pageNum.toString();
+    window.location.replace(url)
+  }
+</script>
+
+{% endblock content %}
